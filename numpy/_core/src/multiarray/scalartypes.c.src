@@ -154,7 +154,8 @@ gentype_generic_method(PyObject *self, PyObject *args, PyObject *kwds,
             Py_DECREF(ret);
             Py_INCREF(self);
             return (PyObject *)self;    
-        } 
+        }
+        Py_DECREF(arr); 
         return PyArray_Return((PyArrayObject *)ret);
     }
     else {
