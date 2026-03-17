@@ -135,6 +135,16 @@ class TestIsInteger:
                 continue
             assert not value.is_integer()
 
+class TestAsType:
+    @pytest.mark.parametrize("val", [3, 4, 5])
+    def test_copy(self, val: type[np.number]) -> None:
+        a = np.float64(val)
+        b = a.astype(np.float64, copy=False)
+        assert id(a) == id(b)
+        b = np.astype(a, np.int64, copy=False)
+        assert id(a) != id(b)
+        b = a.astype(np.float64, copy=True)
+        assert id(a) != id(b)
 
 class TestClassGetItem:
     @pytest.mark.parametrize("cls", [

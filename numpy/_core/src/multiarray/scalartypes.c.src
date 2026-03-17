@@ -2,6 +2,7 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
 #include <structmember.h>
+#include <string.h>
 
 #define NPY_NO_DEPRECATED_API NPY_API_VERSION
 #ifndef _MULTIARRAYMODULE
@@ -146,11 +147,18 @@ gentype_generic_method(PyObject *self, PyObject *args, PyObject *kwds,
         ret = PyObject_Call(meth, args, kwds);
     }
     Py_DECREF(meth);
-    Py_DECREF(arr);
     if (ret && PyArray_Check(ret)) {
+        char* astype = "astype";
+        if (strcmp(str, astype) == 0 && ret == arr){
+            Py_DECREF(arr);
+            Py_DECREF(ret);
+            Py_INCREF(self);
+            return (PyObject *)self;    
+        } 
         return PyArray_Return((PyArrayObject *)ret);
     }
     else {
+        Py_DECREF(arr);
         return ret;
     }
 }
