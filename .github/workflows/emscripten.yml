@@ -2,6 +2,7 @@ name: Test Emscripten/Pyodide build
 
 on:
   push:
+    branches:
       - tests
   pull_request:
     branches:

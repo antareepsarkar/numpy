@@ -6,6 +6,7 @@ name: Wheel builder
 
 on:
   push:
+    branches:
       - tests
   pull_request:
     branches:
