@@ -7,7 +7,7 @@ name: Test with compiler sanitizers
 on:
   push:
     branches:
-      - main
+      - tests      
   pull_request:
     branches:
       - main
