@@ -1,6 +1,8 @@
 name: Test Emscripten/Pyodide build
 
 on:
+  push:
+      - tests
   pull_request:
     branches:
       - main
@@ -27,7 +29,7 @@ jobs:
     name: Pyodide test
     runs-on: ubuntu-22.04
     # To enable this workflow on a fork, comment out:
-    if: github.repository == 'numpy/numpy'
+    #if: github.repository == 'numpy/numpy'
     steps:
       - name: Checkout NumPy
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
