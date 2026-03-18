@@ -151,7 +151,9 @@ gentype_generic_method(PyObject *self, PyObject *args, PyObject *kwds,
     char *astype = "astype";
     if (strcmp(astype, str) == 0 && ret == arr){
         Py_INCREF(self);
-        ret = self;
+        Py_DECREF(arr);
+        Py_DECREF(ret);  
+        return self;
     }
     Py_DECREF(arr);
     if (ret && PyArray_Check(ret)) {
