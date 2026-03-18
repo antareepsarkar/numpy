@@ -36,6 +36,9 @@ name: BLAS tests (Linux)
 #         Simple test for LP64 via pkg-config
 
 on:
+  push:
+    branches:
+      - tests
   pull_request:
     branches:
       - main
@@ -60,7 +63,7 @@ permissions:
 jobs:
   openblas32_stable_nightly:
     # To enable this workflow on a fork, comment out:
-    if: github.repository == 'numpy/numpy'
+    #if: github.repository == 'numpy/numpy'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

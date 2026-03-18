@@ -1,6 +1,9 @@
 name: Pixi packages tests
 
 on:
+  push:
+    branches:
+      - tests
   pull_request:
     branches:
       - main
