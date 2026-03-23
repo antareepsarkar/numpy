@@ -1,6 +1,9 @@
 name: macOS tests
 
 on:
+  push:
+    branches:
+      - tests_2
   pull_request:
     branches:
       - main
@@ -25,7 +28,7 @@ jobs:
   x86_conda:
     name: macOS x86-64 conda
     # To enable this workflow on a fork, comment out:
-    if: github.repository == 'numpy/numpy'
+    #if: github.repository == 'numpy/numpy'
     runs-on: macos-15-intel
     strategy:
       fail-fast: false
@@ -111,7 +114,7 @@ jobs:
   accelerate:
     name: Accelerate - ${{ matrix.build_runner[1] }} - ${{ matrix.version }}
     # To enable this workflow on a fork, comment out:
-    if: github.repository == 'numpy/numpy'
+    # if: github.repository == 'numpy/numpy'
     runs-on: ${{ matrix.build_runner[0] }}
     strategy:
       fail-fast: false
