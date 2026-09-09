@@ -138,12 +138,12 @@ class TestIsInteger:
 class TestAsType:
     def test_copy(self) -> None:
         a = np.float64(4.5)
-        b = a.astype(np.float64, copy=False)
+        b = a.astype(np.longdouble, copy=False)
         assert a is b
         b = np.astype(a, np.int64, copy=False)
         assert a != b
         b = a.astype(np.float64, copy=True)
-        assert a is b
+        assert a is b 
 
 class TestAsTypeStructuredCopy:
     # Regression test for gh-32379: astype on a structured scalar
