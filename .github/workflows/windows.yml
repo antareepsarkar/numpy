@@ -6,7 +6,7 @@ on:
       - windows_test
   pull_request:
     branches:
-      - windows_test
+      - win_1
       - maintenance/**
     paths-ignore:
       - '**.pyi'
