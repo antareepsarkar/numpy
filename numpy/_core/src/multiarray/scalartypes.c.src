@@ -2316,7 +2316,7 @@ gentype_astype(PyObject *self,
         return NULL;
     }
     
-    int equiv = (to != NULL) && PyArray_EquivTypes(from, to);
+    int equiv = (to != NULL) && PyArray_EquivTypes(from, to) && Py_TYPE(self) == (PyTypeObject *)to->typeobj;
     Py_DECREF(from);
     if(equiv){
         if ((forcecopy == 0) | (! PyArray_IsScalar(self, Void))){
