@@ -66,6 +66,7 @@ class TestDateTime:
         assert_equal(str(np.dtype("M8")), "datetime64")
 
         # Should be possible to specify the endianness
+        assert(np.longdouble == np.float64)
         assert_equal(np.dtype("=M8"), np.dtype("M8"))
         assert_equal(np.dtype("=M8[s]"), np.dtype("M8[s]"))
         assert_(np.dtype(">M8") == np.dtype("M8") or
