@@ -79,7 +79,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: windows-2022
+          - os: windows-2019
             architecture: x86
             python_version: '3.15t-dev'
           - os: windows-11-arm
@@ -133,7 +133,7 @@ jobs:
   #=======================================================================================
   msvc_python64bit_openblas:
     name: MSVC, x86_64, ${{ matrix.TEST_MODE }}, openblas${{ matrix.BLAS }}
-    runs-on: windows-2022
+    runs-on: windows-2019
     strategy:
       fail-fast: false
       matrix:
