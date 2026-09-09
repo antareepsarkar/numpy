@@ -3,7 +3,7 @@ name: Windows tests
 on:
   push:
     branches:
-      - windows_test
+      - win_1
   pull_request:
     branches:
       - win_1
